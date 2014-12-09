@@ -12,10 +12,12 @@ allprojects {
   }
 }
 
-ext.githubProjectName = 'iep-shadow'
-status = project.hasProperty('preferredStatus')?project.preferredStatus:(version.contains('SNAPSHOT')?'snapshot':'release')
-
-apply from: file('gradle/maven.gradle')
+ext {
+  githubProjectName = 'iep-shadow'
+  status = project.hasProperty('preferredStatus')?project.preferredStatus:(version.contains('SNAPSHOT')?'snapshot':'release')
+  sonatypeUsername = rootProject.hasProperty('sonatypeUsername')?rootProject.sonatypeUsername:''
+  sonatypePassword = rootProject.hasProperty('sonatypePassword')?rootProject.sonatypePassword:''
+}
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.2.1'
@@ -24,8 +26,14 @@ task wrapper(type: Wrapper) {
 subprojects {
   apply plugin: 'java'
   apply plugin: 'com.github.johnrengelman.shadow'
+  apply plugin: 'maven'
+  apply plugin: 'signing'
 
-  group = "com.netflix.${githubProjectName}"
+  signing {
+    sign configurations.archives
+  }
+
+  group = "com.netflix.${rootProject.githubProjectName}"
 
   sourceCompatibility = 1.7
   targetCompatibility = 1.7
@@ -42,6 +50,58 @@ subprojects {
   javadoc {
     options {
       links = ['http://docs.oracle.com/javase/7/docs/api/']
+    }
+  }
+
+  uploadShadow {
+    configuration = configurations.archives
+    onlyIf { ['release', 'snapshot'].contains(project.status) }
+    repositories.mavenDeployer {
+      beforeDeployment { signing.signPom(it) }
+
+      // To test deployment locally, use the following instead of oss.sonatype.org
+      //repository(url: "file://localhost/${rootProject.rootDir}/repo")
+
+      repository(url: 'https://oss.sonatype.org/service/local/staging/deploy/maven2') {
+        authentication(userName: rootProject.sonatypeUsername, password: rootProject.sonatypePassword)
+      }
+
+      snapshotRepository(url: 'https://oss.sonatype.org/content/repositories/snapshots/') {
+        authentication(userName: rootProject.sonatypeUsername, password: rootProject.sonatypePassword)
+      }
+
+      // Prevent datastamp from being appending to artifacts during deployment
+      uniqueVersion = false
+
+      // Closure to configure all the POM with extra info, common to all projects
+      pom.project {
+        name "${project.name}"
+        description "${project.name} developed by Netflix"
+        developers {
+          developer {
+            id 'netflixgithub'
+            name 'Netflix Open Source Development'
+            email 'talent@netflix.com'
+          }
+        }
+        licenses {
+          license {
+            name 'The Apache Software License, Version 2.0'
+            url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+            distribution 'repo'
+          }
+        }
+        url "https://github.com/Netflix/${rootProject.githubProjectName}"
+        scm {
+          connection "scm:git:git@github.com:Netflix/${rootProject.githubProjectName}.git"
+          url "scm:git:git@github.com:Netflix/${rootProject.githubProjectName}.git"
+          developerConnection "scm:git:git@github.com:Netflix/${rootProject.githubProjectName}.git"
+        }
+        issueManagement {
+          system 'github'
+          url "https://github.com/Netflix/${rootProject.githubProjectName}/issues"
+        }
+      }
     }
   }
 }
