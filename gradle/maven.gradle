@@ -7,7 +7,7 @@ subprojects {
         sign configurations.archives
     }
 
-uploadArchives {
+uploadShadow {
     configuration = configurations.archives
     onlyIf { ['release', 'snapshot'].contains(project.status) }
         repositories.mavenDeployer {
