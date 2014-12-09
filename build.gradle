@@ -1,6 +1,6 @@
 
 // Establish version and status
-ext.githubProjectName = 'iep'
+ext.githubProjectName = 'iep-shadow'
 
 buildscript {
   repositories {

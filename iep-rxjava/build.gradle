@@ -2,7 +2,6 @@ version = '1.0.2-SNAPSHOT'
 
 dependencies {
   // these dependencies are shaded
-  compile 'io.reactivex:rxjava:1.0.2'
   provided 'io.reactivex:rxjava:1.0.2'
   shadow 'io.reactivex:rxjava:1.0.2'
 }
