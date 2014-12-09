@@ -13,6 +13,7 @@ allprojects {
 }
 
 ext.githubProjectName = 'iep-shadow'
+status = project.hasProperty('preferredStatus')?project.preferredStatus:(version.contains('SNAPSHOT')?'snapshot':'release')
 
 apply from: file('gradle/maven.gradle')
 
@@ -28,6 +29,8 @@ subprojects {
 
   sourceCompatibility = 1.7
   targetCompatibility = 1.7
+
+  status = rootProject.status
 
   if (System.getProperty("java.version").startsWith("1.8.")) {
     tasks.withType(Javadoc) {
