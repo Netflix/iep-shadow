@@ -2,7 +2,7 @@ version = '1.0.2-SNAPSHOT'
 
 dependencies {
   // these dependencies are shaded
-  compile 'io.reactivex:rxjava:1.0.2'
+  compile group: 'io.reactivex', name: 'rxjava', version: '1.0.2'
   shadow 'io.reactivex:rxjava:1.0.2'
 }
 
@@ -14,3 +14,16 @@ shadowJar {
   relocate 'rx', 'iep.rx'
 }
 
+//task mappings << {
+//    println conf2ScopeMappings.mappings
+//    conf2ScopeMappings.mappings.each {
+//      println it
+//    }
+//}
+
+//uploadMavenCentral.repositories.mavenDeployer {
+//  println pom.dependencies
+//  pom.dependencies = []
+//  //System.exit(-1)
+//  //pom.dependencies.find {dep -> dep.groupId == 'io.reactivex'}.optional = true
+//}

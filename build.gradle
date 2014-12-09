@@ -1,51 +1,33 @@
-
-// Establish version and status
-ext.githubProjectName = 'iep-shadow'
-
-buildscript {
-  repositories {
-    mavenLocal()
-    mavenCentral()
-    jcenter()
-  }
-  dependencies {
-     classpath 'com.github.jengelman.gradle.plugins:shadow:1.1.2'
-  }
-  apply from: file('gradle/buildscript.gradle'), to: buildscript 
+plugins {
+  id 'java'
+  id 'com.github.johnrengelman.shadow' version '1.2.0'
 }
 
 allprojects {
-  apply plugin: 'idea'
-  apply plugin: 'project-report'
-  apply plugin: 'me.champeau.gradle.jmh'
-  apply plugin: 'com.github.ben-manes.versions'
-  apply plugin: 'com.github.johnrengelman.shadow'
-
   repositories {
     mavenLocal()
     mavenCentral()
     maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+    jcenter()
   }
 }
 
-apply from: file('gradle/convention.gradle')
+ext.githubProjectName = 'iep-shadow'
+
 apply from: file('gradle/maven.gradle')
-//apply from: file('gradle/check.gradle')
-//apply from: file('gradle/license.gradle')
-apply from: file('gradle/release.gradle')
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.2.1'
+}
 
 subprojects {
   apply plugin: 'java'
-  apply plugin: 'jacoco'
+  apply plugin: 'com.github.johnrengelman.shadow'
 
   group = "com.netflix.${githubProjectName}"
 
   sourceCompatibility = 1.7
   targetCompatibility = 1.7
-
-  tasks.withType(Compile) { 
-    options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation" 
-  }
 
   if (System.getProperty("java.version").startsWith("1.8.")) {
     tasks.withType(Javadoc) {
@@ -57,37 +39,6 @@ subprojects {
   javadoc {
     options {
       links = ['http://docs.oracle.com/javase/7/docs/api/']
-    }
-  }
-
-  jmh {
-    warmupIterations = 2
-    iterations = 10
-    fork = 5
-    profilers = ['STACK']
-    include '.*'
-  }
-
-  jacoco {
-    toolVersion = "0.7.1.201405082137"
-  }
-
-  jacocoTestReport {
-    additionalSourceDirs = files(sourceSets.main.allJava.srcDirs)
-    reports {
-      xml.enabled false
-      csv.enabled false
-      html.destination "${buildDir}/reports/jacoco"
-    }
-  }
-
-  task copyDepsToBuild << {
-    ['compile', 'runtime', 'testCompile', 'testRuntime'].each { conf ->
-      delete "${buildDir}/dependencies/${conf}"
-      copy {
-        from configurations[conf]
-        into "${buildDir}/dependencies/${conf}"
-      }
     }
   }
 }

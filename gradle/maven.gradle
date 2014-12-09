@@ -4,16 +4,10 @@ subprojects {
     apply plugin: 'signing'
 
     signing {
-        required { gradle.taskGraph.hasTask(uploadMavenCentral) }
         sign configurations.archives
     }
 
-/**
- * Publishing to Maven Central example provided from http://jedicoder.blogspot.com/2011/11/automated-gradle-project-deployment-to.html
- * artifactory will execute uploadArchives to force generation of ivy.xml, and we don't want that to trigger an upload to maven
- * central, so using custom upload task.
- */
-task uploadMavenCentral(type:Upload, dependsOn: signArchives) {
+uploadArchives {
     configuration = configurations.archives
     onlyIf { ['release', 'snapshot'].contains(project.status) }
         repositories.mavenDeployer {
