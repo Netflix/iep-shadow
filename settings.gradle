@@ -1,1 +1,1 @@
-include 'iep-rxjava'
+include 'iep-rxjava', 'iep-rxnetty'
