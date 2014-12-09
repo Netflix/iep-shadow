@@ -74,6 +74,8 @@ subprojects {
       // Prevent datastamp from being appending to artifacts during deployment
       uniqueVersion = false
 
+      pom.scopeMappings.mappings.remove(project.configurations.runtime)
+
       // Closure to configure all the POM with extra info, common to all projects
       pom.project {
         name "${project.name}"
