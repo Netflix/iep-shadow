@@ -1,0 +1,18 @@
+version = "${rootProject.versionRxNetty}${versionSuffix}"
+
+dependencies {
+  runtime "com.netflix.iep-shadow:iep-rxnetty:${rootProject.versionRxNetty}${versionSuffix}"
+
+  // these dependencies are shaded
+  providedCompile "io.reactivex:rxnetty-contexts:${rootProject.versionRxNetty}"
+  shadow "io.reactivex:rxnetty-contexts:${rootProject.versionRxNetty}"
+}
+
+shadowJar {
+  classifier = null
+  dependencies {
+      include dependency("io.reactivex:rxnetty-contexts:${rootProject.versionRxNetty}")
+  }
+  relocate 'rx', 'iep.rx'
+  relocate 'io.reactivex', 'iep.io.reactivex'
+}
