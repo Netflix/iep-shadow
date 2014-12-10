@@ -12,6 +12,7 @@ shadowJar {
   classifier = null
   dependencies {
       include dependency('io.reactivex:rxnetty:0.4.4')
+      exclude dependency('com.netflix.iep-shadow:iep-rxjava:1.0.2-SNAPSHOT')
   }
   relocate 'rx', 'iep.rx'
   relocate 'io.reactivex', 'iep.io.reactivex'
