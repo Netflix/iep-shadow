@@ -48,6 +48,22 @@ subprojects {
 
   status = rootProject.status
 
+  task sourcesJar(type: Jar, dependsOn:classes) {
+    from sourceSets.main.allSource
+    classifier 'sources'
+    extension 'jar'
+  }
+
+  task javadocJar(type: Jar, dependsOn:javadoc) {
+    from javadoc.destinationDir
+    classifier 'javadoc'
+    extension 'jar'
+  }
+  artifacts {
+    archives sourcesJar
+    archives javadocJar
+  }
+
   if (System.getProperty("java.version").startsWith("1.8.")) {
     tasks.withType(Javadoc) {
       // http://blog.joda.org/2014/02/turning-off-doclint-in-jdk-8-javadoc.html
