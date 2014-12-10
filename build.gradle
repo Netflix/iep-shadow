@@ -82,7 +82,7 @@ subprojects {
     configuration = configurations.archives
     onlyIf { ['release', 'snapshot'].contains(project.status) }
     repositories.mavenDeployer {
-      //beforeDeployment { signing.signPom(it) }
+      beforeDeployment { signing.signPom(it) }
 
       addFilter('jar') {artifact, file ->
         artifact.ext == 'jar'
@@ -90,7 +90,7 @@ subprojects {
       addFilter('war') {artifact, file ->
         artifact.ext == 'war'
       }
-      pom('war').version = 'mySpecialMavenVersion'
+      pom('war').version = 'ignore'
 
       // To test deployment locally, use the following instead of oss.sonatype.org
       //repository(url: "file://localhost/${rootProject.rootDir}/repo")
