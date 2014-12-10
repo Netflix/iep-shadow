@@ -1,10 +1,10 @@
 version = '0.4.4-SNAPSHOT'
 
 dependencies {
+  runtime 'com.netflix.iep-shadow:iep-rxjava:1.0.2-SNAPSHOT'
+
   // these dependencies are shaded
-  providedCompile('io.reactivex:rxnetty:0.4.4') {
-    transitive = true
-  }
+  providedCompile 'io.reactivex:rxnetty:0.4.4'
   shadow 'io.reactivex:rxnetty:0.4.4'
 }
 
