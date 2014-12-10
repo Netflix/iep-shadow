@@ -78,11 +78,11 @@ subprojects {
     }
   }
 
-  uploadShadow {
+  uploadArchives {
     configuration = configurations.archives
     onlyIf { ['release', 'snapshot'].contains(project.status) }
     repositories.mavenDeployer {
-      beforeDeployment { signing.signPom(it) }
+      //beforeDeployment { signing.signPom(it) }
 
       // To test deployment locally, use the following instead of oss.sonatype.org
       //repository(url: "file://localhost/${rootProject.rootDir}/repo")
