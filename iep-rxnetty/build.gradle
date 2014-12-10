@@ -7,7 +7,9 @@ dependencies {
   shadow "org.slf4j:slf4j-api:${rootProject.versionSlf4j}"
 
   // these dependencies are shaded
-  providedCompile "io.reactivex:rxnetty:${rootProject.versionRxNetty}"
+  providedCompile "io.reactivex:rxnetty:${rootProject.versionRxNetty}" {
+    transitive: false
+  }
   shadow "io.reactivex:rxnetty:${rootProject.versionRxNetty}"
 }
 
