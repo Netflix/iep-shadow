@@ -83,6 +83,7 @@ subprojects {
     onlyIf { ['release', 'snapshot'].contains(project.status) }
     repositories.mavenDeployer {
       beforeDeployment { signing.signPom(it) }
+      beforeDeployment { signing.signJar(it) }
 
       addFilter('jar') {artifact, file ->
         artifact.ext == 'jar'
