@@ -1,15 +1,15 @@
-version = '1.0.2-SNAPSHOT'
+version = "${rootProject.versionRxJava}${versionSuffix}"
 
 dependencies {
   // these dependencies are shaded
-  providedCompile group: 'io.reactivex', name: 'rxjava', version: '1.0.2'
-  shadow 'io.reactivex:rxjava:1.0.2'
+  providedCompile "io.reactivex:rxjava:${rootProject.versionRxJava}"
+  shadow "io.reactivex:rxjava:${rootProject.versionRxJava}"
 }
 
 shadowJar {
   classifier = null
   dependencies {
-      include dependency('io.reactivex:rxjava:1.0.2')
+      include dependency("io.reactivex:rxjava:${rootProject.versionRxJava}")
   }
   relocate 'rx', 'iep.rx'
 }

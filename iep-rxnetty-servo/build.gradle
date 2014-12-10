@@ -1,18 +1,18 @@
-version = '0.4.4-SNAPSHOT'
+version = "${rootProject.versionRxNetty}${versionSuffix}"
 
 dependencies {
-  shadow 'com.netflix.iep-shadow:iep-rxnetty:0.4.4-SNAPSHOT'
-  shadow 'com.netflix.servo:servo-core:0.7.5'
+  shadow "com.netflix.iep-shadow:iep-rxnetty:${rootProject.versionRxNetty}${versionSuffix}"
+  shadow "com.netflix.servo:servo-core:${rootProject.versionServo}"
 
   // these dependencies are shaded
-  providedCompile 'io.reactivex:rxnetty-servo:0.4.4'
-  shadow 'io.reactivex:rxnetty-servo:0.4.4'
+  providedCompile "io.reactivex:rxnetty-servo:${rootProject.versionRxNetty}"
+  shadow "io.reactivex:rxnetty-servo:${rootProject.versionRxNetty}"
 }
 
 shadowJar {
   classifier = null
   dependencies {
-      include dependency('io.reactivex:rxnetty-servo:0.4.4')
+      include dependency("io.reactivex:rxnetty-servo:${rootProject.versionRxNetty}")
   }
   relocate 'rx', 'iep.rx'
   relocate 'io.reactivex', 'iep.io.reactivex'

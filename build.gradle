@@ -12,9 +12,15 @@ allprojects {
   }
 }
 
-status = project.hasProperty('preferredStatus')?project.preferredStatus:(version.contains('SNAPSHOT')?'snapshot':'release')
+status = (project.hasProperty('preferredStatus')) ? project.preferredStatus : 'snapshot'
 
 ext {
+  versionSuffix = (rootProject.status == 'snapshot') ? '-SNAPSHOT' : ''
+  versionRxJava = '1.0.2'
+  versionRxNetty = '0.4.4'
+  versionIoNetty = '4.0.21.Final'
+  versionSlf4j = '1.7.6'
+  versionServo = '0.7.5'
   githubProjectName = 'iep-shadow'
   sonatypeUsername = rootProject.hasProperty('sonatypeUsername')?rootProject.sonatypeUsername:''
   sonatypePassword = rootProject.hasProperty('sonatypePassword')?rootProject.sonatypePassword:''
