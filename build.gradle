@@ -65,6 +65,8 @@ subprojects {
     archives shadowJar
   }
 
+  configurations.runtime.artifacts.removeAll { it.archiveTask.is war }
+
   if (System.getProperty("java.version").startsWith("1.8.")) {
     tasks.withType(Javadoc) {
       // http://blog.joda.org/2014/02/turning-off-doclint-in-jdk-8-javadoc.html
