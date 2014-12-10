@@ -3,7 +3,7 @@ version = '0.4.4-SNAPSHOT'
 dependencies {
   // these dependencies are shaded
   providedCompile('io.reactivex:rxnetty:0.4.4') {
-    transitive = true
+    transitive = false
   }
   shadow 'io.reactivex:rxnetty:0.4.4'
 }
