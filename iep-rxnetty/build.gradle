@@ -8,7 +8,7 @@ dependencies {
 
   // these dependencies are shaded
   providedCompile "io.reactivex:rxnetty:${rootProject.versionRxNetty}" {
-    transitive: false
+    transitive = false
   }
   shadow "io.reactivex:rxnetty:${rootProject.versionRxNetty}"
 }
