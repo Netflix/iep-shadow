@@ -107,7 +107,9 @@ subprojects {
       uniqueVersion = false
 
       // Closure to configure all the POM with extra info, common to all projects
-      pom.project {
+      def ascPom = addFilter('asc') {artifact, file -> artifact.ext == "asc" }
+      def jarPom = addFilter('jar') {artifact, file -> artifact.ext == "jar" }
+      jarPom.project {
         name "${project.name}"
         description "${project.name} developed by Netflix"
         developers {
