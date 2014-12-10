@@ -65,8 +65,6 @@ subprojects {
     archives shadowJar
   }
 
-  configurations.runtime.artifacts.removeAll { it.archiveTask.is war }
-
   if (System.getProperty("java.version").startsWith("1.8.")) {
     tasks.withType(Javadoc) {
       // http://blog.joda.org/2014/02/turning-off-doclint-in-jdk-8-javadoc.html
@@ -85,6 +83,14 @@ subprojects {
     onlyIf { ['release', 'snapshot'].contains(project.status) }
     repositories.mavenDeployer {
       //beforeDeployment { signing.signPom(it) }
+
+      addFilter('jar') {artifact, file ->
+        artifact.ext == 'jar'
+      }
+      addFilter('war') {artifact, file ->
+        artifact.ext == 'war'
+      }
+      pom('war').version = 'mySpecialMavenVersion'
 
       // To test deployment locally, use the following instead of oss.sonatype.org
       //repository(url: "file://localhost/${rootProject.rootDir}/repo")
