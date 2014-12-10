@@ -1,15 +1,13 @@
 version = "${rootProject.versionRxNetty}${versionSuffix}"
 
 dependencies {
-  shadow "com.netflix.iep-shadow:iep-rxjava:${rootProject.versionRxJava}${versionSuffix}"
-  shadow "io.netty:netty-codec-http:${rootProject.versionIoNetty}"
-  shadow "io.netty:netty-transport-native-epoll:${rootProject.versionIoNetty}"
-  shadow "org.slf4j:slf4j-api:${rootProject.versionSlf4j}"
+  runtime "com.netflix.iep-shadow:iep-rxjava:${rootProject.versionRxJava}${versionSuffix}"
+  runtime "io.netty:netty-codec-http:${rootProject.versionIoNetty}"
+  runtime "io.netty:netty-transport-native-epoll:${rootProject.versionIoNetty}"
+  runtime "org.slf4j:slf4j-api:${rootProject.versionSlf4j}"
 
   // these dependencies are shaded
-  providedCompile("io.reactivex:rxnetty:${rootProject.versionRxNetty}") {
-    transitive = true
-  }
+  providedCompile "io.reactivex:rxnetty:${rootProject.versionRxNetty}"
   shadow "io.reactivex:rxnetty:${rootProject.versionRxNetty}"
 }
 
