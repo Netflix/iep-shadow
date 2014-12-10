@@ -61,6 +61,8 @@ subprojects {
     archives shadowJar
   }
 
+  configurations.archives.artifacts.removeAll { it.archiveTask.is war } 
+
   signing {
     sign configurations.archives
   }
