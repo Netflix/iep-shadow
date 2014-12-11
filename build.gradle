@@ -86,14 +86,6 @@ subprojects {
     repositories.mavenDeployer {
       beforeDeployment { signing.signPom(it) }
 
-//      addFilter('jar') {artifact, file ->
-//        artifact.ext == 'jar'
-//      }
-//      addFilter('war') {artifact, file ->
-//        artifact.ext == 'war'
-//      }
-//      pom('war').version = 'ignore'
-
       // To test deployment locally, use the following instead of oss.sonatype.org
       //repository(url: "file://localhost/${rootProject.rootDir}/repo")
 
@@ -109,9 +101,6 @@ subprojects {
       uniqueVersion = false
 
       // Closure to configure all the POM with extra info, common to all projects
-//      def ascPom = addFilter('asc') {artifact, file -> artifact.ext == "asc" }
-//      def jarPom = addFilter('jar') {artifact, file -> artifact.ext == "jar" }
-//      jarPom.project {
       pom.project {
         name "${project.name}"
         description "${project.name} developed by Netflix"

@@ -1,7 +1,6 @@
 version = "${rootProject.versionRxNetty}${versionSuffix}"
 
 dependencies {
-  //runtime "com.netflix.iep-shadow:iep-rxjava:${rootProject.versionRxJava}${versionSuffix}"
   runtime project(':iep-rxjava')
   runtime "io.netty:netty-codec-http:${rootProject.versionIoNetty}"
   runtime "io.netty:netty-transport-native-epoll:${rootProject.versionIoNetty}"
