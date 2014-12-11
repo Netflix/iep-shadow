@@ -55,6 +55,7 @@ subprojects {
     classifier 'javadoc'
     extension 'jar'
   }
+
   artifacts {
     archives sourcesJar
     archives javadocJar
@@ -64,6 +65,7 @@ subprojects {
   configurations.archives.artifacts.removeAll { it.archiveTask.is war } 
 
   signing {
+    required { gradle.taskGraph.hasTask("uploadArchives") }
     sign configurations.archives
   }
 
