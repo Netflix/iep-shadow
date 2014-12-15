@@ -1,0 +1,18 @@
+version = "${rootProject.versionRxScala}${versionSuffix}"
+
+dependencies {
+  runtime project(':iep-rxjava')
+
+  // these dependencies are shaded
+  providedCompile "io.reactivex:rxscala_2.11:${rootProject.versionRxScala}"
+  shadow "io.reactivex:rxscala_2.11:${rootProject.versionRxScala}"
+}
+
+shadowJar {
+  classifier = null
+  dependencies {
+      include dependency("io.reactivex:rxscala_2.11:${rootProject.versionRxScala}")
+  }
+  relocate 'rx', 'iep.rx'
+  relocate 'io.reactivex', 'iep.io.reactivex'
+}
