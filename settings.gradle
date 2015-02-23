@@ -1,1 +1,6 @@
-include 'iep-rxjava', 'iep-rxscala_2.11', 'iep-rxnetty', 'iep-rxnetty-servo', 'iep-rxnetty-contexts'
+include 'iep-rxjava',
+        'iep-rxscala_2.11',
+        'iep-rxnetty',
+        'iep-rxnetty-servo',
+        'iep-rxnetty-spectator',
+        'iep-rxnetty-contexts'
