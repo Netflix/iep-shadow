@@ -16,7 +16,7 @@ status = (project.hasProperty('preferredStatus')) ? project.preferredStatus : 's
 
 ext {
   versionSuffix = (rootProject.status == 'snapshot') ? '-SNAPSHOT' : ''
-  versionRxJava = '1.0.6'
+  versionRxJava = '1.0.7'
   versionRxScala = '0.23.0'
   versionRxNetty = '0.4.6'
   versionIoNetty = '4.0.21.Final'
