@@ -8,6 +8,16 @@ dependencies {
   shadow "io.reactivex:rxscala_2.11:${rootProject.versionRxScala}"
 }
 
+task buildRxScala(type: Exec) {
+  commandLine './project/sbt', 'package'
+}
+
+task copyScalaJar(type: Copy) {
+  from "target/scala-2.11/iep-rxscala_2.11-x.y-SNAPSHOT.jar"
+  into "build/libs/"
+  rename '.*', "iep-rxscala_2.11-${version}.jar"
+}
+
 shadowJar {
   classifier = null
   dependencies {
@@ -15,4 +25,6 @@ shadowJar {
   }
   relocate 'rx', 'iep.rx'
   relocate 'io.reactivex', 'iep.io.reactivex'
+
+  finalizedBy(buildRxScala, copyScalaJar)
 }

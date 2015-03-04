@@ -19,7 +19,7 @@ ext {
   versionRxJava = '1.0.7'
   versionRxScala = '0.23.0'
   versionRxNetty = '0.4.6'
-  versionIoNetty = '4.0.21.Final'
+  versionIoNetty = '4.0.25.Final'
   versionSlf4j = '1.7.10'
   versionServo = '0.8.3'
   versionSpectator = '0.20.0'
