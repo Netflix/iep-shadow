@@ -3,4 +3,9 @@ include 'iep-rxjava',
         'iep-rxnetty',
         'iep-rxnetty-servo',
         'iep-rxnetty-spectator',
-        'iep-rxnetty-contexts'
+        'iep-rxnetty-contexts',
+        'iep-karyon2-core',
+        'iep-karyon2-governator',
+        'iep-karyon2-servo',
+        'iep-karyon2-archaius',
+        'iep-karyon2-eureka'
