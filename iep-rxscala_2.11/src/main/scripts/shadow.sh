@@ -12,7 +12,13 @@ mkdir -p $dir
 cd $dir
 jar xf "${pwd}/${jar}"
 
-for f in `find . -type f`; do echo $f; sed -i '.orig' 's/rx\./iep.rx./g;' $f; done
+uname=`uname`
+
+if [ "${uname}" == "Darwin" ]; then
+  for f in `find . -type f`; do echo $f; sed -i '.orig' 's/rx\./iep.rx./g;' $f; done
+else
+  for f in `find . -type f`; do echo $f; sed -i 's/rx\./iep.rx./g;' $f; done
+fi
 
 cd ${pwd}
 ./project/sbt test package
