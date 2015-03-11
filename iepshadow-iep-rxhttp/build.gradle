@@ -1,0 +1,27 @@
+version = "${rootProject.versionIep}${versionSuffix}"
+
+dependencies {
+  runtime project(':iepshadow-rxjava')
+  runtime project(':iepshadow-rxnetty')
+  runtime project(':iepshadow-rxnetty-contexts')
+  runtime "com.netflix.archaius:archaius-core:${rootProject.versionArchaius}"
+  runtime "com.netflix.eureka:eureka-client:${rootProject.versionEureka}"
+  runtime "com.jcraft:jzlib:${rootProject.versionJcraft}"
+  runtime "com.netflix.spectator:spectator-api:${rootProject.versionSpectator}"
+  runtime "com.netflix.spectator:spectator-ext-sandbox:${rootProject.versionSpectator}"
+  runtime "org.slf4j:slf4j-api:${rootProject.versionSlf4j}"
+
+  // these dependencies are shaded
+  providedCompile "com.netflix.iep:iep-rxhttp:${rootProject.versionIep}"
+  shadow "com.netflix.iep:iep-rxhttp:${rootProject.versionIep}"
+}
+
+shadowJar {
+  classifier = null
+  dependencies {
+      include dependency("com.netflix.iep:iep-rxhttp:${rootProject.versionIep}")
+  }
+  relocate 'rx', 'iep.rx'
+  relocate 'io.reactivex', 'iep.io.reactivex'
+  relocate 'com.netflix.iep.http', 'iep.com.netflix.iep.http'
+}
