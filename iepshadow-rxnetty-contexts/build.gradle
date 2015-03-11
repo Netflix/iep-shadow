@@ -1,7 +1,7 @@
 version = "${rootProject.versionRxNetty}${versionSuffix}"
 
 dependencies {
-  runtime project(':iep-rxnetty')
+  runtime project(':iepshadow-rxnetty')
 
   // these dependencies are shaded
   providedCompile "io.reactivex:rxnetty-contexts:${rootProject.versionRxNetty}"

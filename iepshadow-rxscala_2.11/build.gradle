@@ -1,7 +1,7 @@
 version = "${rootProject.versionRxScala}${versionSuffix}"
 
 dependencies {
-  runtime project(':iep-rxjava')
+  runtime project(':iepshadow-rxjava')
 
   // these dependencies are shaded
   providedCompile "io.reactivex:rxscala_2.11:${rootProject.versionRxScala}"
@@ -20,9 +20,9 @@ task buildRxScala(dependsOn: copyScalaSourceJar, type: Exec) {
 }
 
 task copyScalaJar(dependsOn: buildRxScala, type: Copy) {
-  from "target/scala-2.11/iep-rxscala_2.11-x.y-SNAPSHOT.jar"
+  from "target/scala-2.11/iepshadow-rxscala_2.11-x.y-SNAPSHOT.jar"
   into "build/libs/"
-  rename '.*', "iep-rxscala_2.11-${version}.jar"
+  rename '.*', "iepshadow-rxscala_2.11-${version}.jar"
 }
 
 shadowJar {

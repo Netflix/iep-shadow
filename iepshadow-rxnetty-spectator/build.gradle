@@ -1,7 +1,7 @@
 version = "${rootProject.versionRxNetty}${versionSuffix}"
 
 dependencies {
-  runtime project(':iep-rxnetty')
+  runtime project(':iepshadow-rxnetty')
   runtime "com.netflix.spectator:spectator-api:${rootProject.versionSpectator}"
 
   // these dependencies are shaded

@@ -1,7 +1,7 @@
 version = "${rootProject.versionKaryon}${versionSuffix}"
 
 dependencies {
-  runtime project(':iep-rxnetty-contexts')
+  runtime project(':iepshadow-rxnetty-contexts')
   runtime "org.slf4j:slf4j-api:${rootProject.versionSlf4j}"
 
   // these dependencies are shaded

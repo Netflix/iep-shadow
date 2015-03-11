@@ -1,6 +1,6 @@
 organization := "com.netflix.iep-shadow"
 
-name := "iep-rxscala"
+name := "iepshadow-rxscala"
 
 lazy val root = project in file(".")
 

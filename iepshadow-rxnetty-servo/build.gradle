@@ -1,7 +1,7 @@
 version = "${rootProject.versionRxNetty}${versionSuffix}"
 
 dependencies {
-  runtime project(':iep-rxnetty')
+  runtime project(':iepshadow-rxnetty')
   runtime "com.netflix.servo:servo-core:${rootProject.versionServo}"
 
   // these dependencies are shaded

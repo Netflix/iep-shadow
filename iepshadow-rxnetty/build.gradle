@@ -1,7 +1,7 @@
 version = "${rootProject.versionRxNetty}${versionSuffix}"
 
 dependencies {
-  runtime project(':iep-rxjava')
+  runtime project(':iepshadow-rxjava')
   runtime "io.netty:netty-codec-http:${rootProject.versionIoNetty}"
   runtime "io.netty:netty-transport-native-epoll:${rootProject.versionIoNetty}"
   runtime "org.slf4j:slf4j-api:${rootProject.versionSlf4j}"

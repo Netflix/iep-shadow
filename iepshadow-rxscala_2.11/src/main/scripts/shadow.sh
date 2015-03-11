@@ -7,6 +7,7 @@ pwd=`pwd`
 
 echo jar: ${pwd}/${jar}, dir: ${dir}
 
+rm -rf $dir
 mkdir -p $dir
 
 cd $dir

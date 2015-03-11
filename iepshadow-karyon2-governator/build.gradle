@@ -1,7 +1,7 @@
 version = "${rootProject.versionKaryon}${versionSuffix}"
 
 dependencies {
-  runtime project(':iep-karyon2-core')
+  runtime project(':iepshadow-karyon2-core')
   runtime "com.netflix.governator:governator:${rootProject.versionGovernator}"
   runtime "org.slf4j:slf4j-api:${rootProject.versionSlf4j}"
 
