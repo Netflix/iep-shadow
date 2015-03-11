@@ -21,4 +21,4 @@ else
 fi
 
 cd ${pwd}
-./project/sbt test package
+./project/sbt package
