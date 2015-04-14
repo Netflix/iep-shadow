@@ -1,0 +1,24 @@
+version = "${rootProject.versionRxAws}${versionSuffix}"
+
+dependencies {
+  runtime project(':iepshadow-rxjava')
+  runtime project(':iepshadow-rxnetty')
+  runtime project(':iepshadow-rxnetty-contexts')
+  runtime "com.netflix.spectator:spectator-api:${rootProject.versionSpectator}"
+  runtime "com.netflix.awsobjectmapper:awsobjectmapper:${rootProject.versionAwsMapper}"
+  runtime "com.netflix.spectator:spectator-api:${rootProject.versionSpectator}"
+  runtime "org.slf4j:slf4j-api:${rootProject.versionSlf4j}"
+
+  // these dependencies are shaded
+  providedCompile "com.netflix.rx-aws-java-sdk:rx-aws-java-sdk:${rootProject.versionRxAws}"
+  shadow "com.netflix.rx-aws-java-sdk:rx-aws-java-sdk:${rootProject.versionRxAws}"
+}
+
+shadowJar {
+  classifier = null
+  dependencies {
+      include dependency("com.netflix.rx-aws-java-sdk:rx-aws-java-sdk:${rootProject.versionRxAws}")
+  }
+  relocate 'rx', 'iep.rx'
+  relocate 'io.reactivex', 'iep.io.reactivex'
+}
