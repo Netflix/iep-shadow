@@ -10,4 +10,5 @@ include 'iepshadow-rxjava',
         'iepshadow-karyon2-servo',
         'iepshadow-karyon2-archaius',
         'iepshadow-karyon2-eureka',
-        'iepshadow-rx-aws-java-sdk'
+        'iepshadow-rx-aws-java-sdk',
+        'iepshadow-edda-client'
