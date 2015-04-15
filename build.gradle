@@ -31,7 +31,7 @@ ext {
   versionIep = '0.1.13'
   versionRxAws = '0.1.2'
   versionAwsMapper = '1.9.16.2'
-  versionEddaClient = '0.1.4'
+  versionEddaClient = '0.1.5'
   githubProjectName = 'iep-shadow'
   sonatypeUsername = rootProject.hasProperty('sonatypeUsername')?rootProject.sonatypeUsername:''
   sonatypePassword = rootProject.hasProperty('sonatypePassword')?rootProject.sonatypePassword:''
