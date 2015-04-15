@@ -4,12 +4,4 @@ include 'iepshadow-rxjava',
         'iepshadow-rxnetty-servo',
         'iepshadow-rxnetty-spectator',
         'iepshadow-rxnetty-contexts',
-        'iepshadow-iep-rxhttp',
-        'iepshadow-karyon2-core',
-        'iepshadow-karyon2-governator',
-        'iepshadow-karyon2-servo',
-        'iepshadow-karyon2-archaius',
-        'iepshadow-karyon2-eureka',
-        'iepshadow-rx-aws-java-sdk',
-        'iepshadow-edda-client',
-        'iepshadow-edda-client-nflx-plugin'
+        'iepshadow-iep-rxhttp'
