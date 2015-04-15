@@ -6,7 +6,6 @@ dependencies {
   runtime project(':iepshadow-rxnetty-contexts')
   runtime "com.netflix.spectator:spectator-api:${rootProject.versionSpectator}"
   runtime "com.netflix.awsobjectmapper:awsobjectmapper:${rootProject.versionAwsMapper}"
-  runtime "com.netflix.spectator:spectator-api:${rootProject.versionSpectator}"
   runtime "org.slf4j:slf4j-api:${rootProject.versionSlf4j}"
 
   // these dependencies are shaded
@@ -21,4 +20,7 @@ shadowJar {
   }
   relocate 'rx', 'iep.rx'
   relocate 'io.reactivex', 'iep.io.reactivex'
+  relocate ('com.amazonaws', 'iep.com.amazonaws') {
+    include '**.*RxNetty*'
+  }
 }

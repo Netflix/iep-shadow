@@ -20,4 +20,8 @@ shadowJar {
   relocate 'rx', 'iep.rx'
   relocate 'io.reactivex', 'iep.io.reactivex'
   relocate 'com.netflix.iep.http', 'iep.com.netflix.iep.http'
+  relocate 'com.netflix.edda', 'iep.com.netflix.edda'
+  relocate ('com.amazonaws', 'iep.com.amazonaws') {
+    include '**.*RxNetty*'
+  }
 }

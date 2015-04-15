@@ -1,0 +1,24 @@
+version = "${rootProject.versionEddaClient}${versionSuffix}"
+
+dependencies {
+  runtime project(':iepshadow-edda-client')
+  runtime "com.netflix.spectator:spectator-nflx-plugin:${rootProject.versionSpectator}"
+
+  // these dependencies are shaded
+  providedCompile "com.netflix.edda-client:edda-client-nflx-plugin:${rootProject.versionEddaClient}"
+  shadow "com.netflix.edda-client:edda-client-nflx-plugin:${rootProject.versionEddaClient}"
+}
+
+shadowJar {
+  classifier = null
+  dependencies {
+      include dependency("com.netflix.edda-client:edda-client-nflx-plugin:${rootProject.versionEddaClient}")
+  }
+  relocate 'rx', 'iep.rx'
+  relocate 'io.reactivex', 'iep.io.reactivex'
+  relocate 'com.netflix.iep.http', 'iep.com.netflix.iep.http'
+  relocate 'com.netflix.edda', 'iep.com.netflix.edda'
+  relocate ('com.amazonaws', 'iep.com.amazonaws') {
+    include '**.*RxNetty*'
+  }
+}
