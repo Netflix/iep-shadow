@@ -13,6 +13,5 @@ shadowJar {
   dependencies {
       include dependency("io.reactivex:rxnetty-contexts:${rootProject.versionRxNetty}")
   }
-  relocate 'rx', 'iep.rx'
   relocate 'io.reactivex', 'iep.io.reactivex'
 }

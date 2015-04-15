@@ -1,6 +1,4 @@
-include 'iepshadow-rxjava',
-        'iepshadow-rxscala_2.11',
-        'iepshadow-rxnetty',
+include 'iepshadow-rxnetty',
         'iepshadow-rxnetty-servo',
         'iepshadow-rxnetty-spectator',
         'iepshadow-rxnetty-contexts',

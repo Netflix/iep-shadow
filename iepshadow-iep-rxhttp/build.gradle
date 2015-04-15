@@ -1,9 +1,9 @@
 version = "${rootProject.versionIep}${versionSuffix}"
 
 dependencies {
-  runtime project(':iepshadow-rxjava')
   runtime project(':iepshadow-rxnetty')
   runtime project(':iepshadow-rxnetty-contexts')
+  runtime "io.reactivex:rxjava:${rootProject.versionRxJava}"
   runtime "com.netflix.archaius:archaius-core:${rootProject.versionArchaius}"
   runtime "com.netflix.eureka:eureka-client:${rootProject.versionEureka}"
   runtime "com.jcraft:jzlib:${rootProject.versionJcraft}"
@@ -21,7 +21,6 @@ shadowJar {
   dependencies {
       include dependency("com.netflix.iep:iep-rxhttp:${rootProject.versionIep}")
   }
-  relocate 'rx', 'iep.rx'
   relocate 'io.reactivex', 'iep.io.reactivex'
   relocate 'com.netflix.iep.http', 'iep.com.netflix.iep.http'
 }
