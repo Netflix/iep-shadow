@@ -15,16 +15,16 @@ allprojects {
 status = (project.hasProperty('preferredStatus')) ? project.preferredStatus : 'snapshot'
 
 ext {
-  versionDot = ".1"
+  versionDot = ".2"
   versionSuffix = (rootProject.status == 'snapshot') ? "${versionDot}-SNAPSHOT" : versionDot
-  versionRxJava = '1.0.8'
+  versionRxJava = '1.0.9'
   versionRxNetty = '0.4.8'
   versionIoNetty = '4.0.27.Final'
-  versionSlf4j = '1.7.10'
-  versionServo = '0.8.3'
-  versionSpectator = '0.21.0'
-  versionEureka = '1.1.150'
-  versionArchaius = '0.6.5'
+  versionSlf4j = '1.7.12'
+  versionServo = '0.9.1'
+  versionSpectator = '0.23.0'
+  versionEureka = '1.1.151'
+  versionArchaius = '0.6.6'
   versionJcraft = '1.1.3'
   versionIep = '0.1.13'
   githubProjectName = 'iep-shadow'
