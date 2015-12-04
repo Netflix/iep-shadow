@@ -3,4 +3,6 @@ include 'iepshadow-rxnetty',
         'iepshadow-rxnetty-spectator',
         'iepshadow-rxnetty-contexts',
         'iepshadow-iep-module-rxnetty',
-        'iepshadow-iep-rxhttp'
+        'iepshadow-iep-rxhttp',
+        'iepshadow-edda-client',
+        'iepshadow-edda-client-module'
