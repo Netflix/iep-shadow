@@ -24,7 +24,7 @@ shadowJar {
   dependencies {
       include dependency("com.netflix.iep:iep-module-rxnetty:${rootProject.versionIep}")
   }
-  exclude 'META-INF/services/com.google.inject.Module'
+  //exclude 'META-INF/services/com.google.inject.Module'
   relocate 'io.reactivex', 'iep.io.reactivex'
   relocate 'com.netflix.iep.http', 'iep.com.netflix.iep.http'
   relocate 'com.netflix.iep.rxnetty', 'iep.com.netflix.iep.rxnetty'
