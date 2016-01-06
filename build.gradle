@@ -15,7 +15,7 @@ allprojects {
 status = (project.hasProperty('preferredStatus')) ? project.preferredStatus : 'snapshot'
 
 ext {
-  versionDot = ".14"
+  versionDot = ".15"
   versionSuffix = (rootProject.status == 'snapshot') ? "${versionDot}-SNAPSHOT" : versionDot
   versionGuice = '4.0'
   versionRxJava = '1.0.17'
@@ -27,7 +27,7 @@ ext {
   versionEureka = '1.3.5'
   versionArchaius = '0.7.3'
   versionJcraft = '1.1.3'
-  versionIep = '0.3.4'
+  versionIep = '0.3.5'
   githubProjectName = 'iep-shadow'
   sonatypeUsername = rootProject.hasProperty('sonatypeUsername')?rootProject.sonatypeUsername:''
   sonatypePassword = rootProject.hasProperty('sonatypePassword')?rootProject.sonatypePassword:''
