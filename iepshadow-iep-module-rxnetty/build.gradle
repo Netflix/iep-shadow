@@ -1,4 +1,4 @@
-version = "${rootProject.versionIep}${versionSuffix}"
+version = "${shortVersion(rootProject.versionIep)}${versionSuffix}"
 
 dependencies {
   runtime project(':iepshadow-iep-rxhttp')

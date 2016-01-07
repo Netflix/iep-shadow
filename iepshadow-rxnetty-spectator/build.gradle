@@ -1,4 +1,4 @@
-version = "${rootProject.versionRxNetty}${versionSuffix}"
+version = "${shortVersion(rootProject.versionRxNetty)}${versionSuffix}"
 
 dependencies {
   runtime project(':iepshadow-rxnetty')

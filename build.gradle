@@ -5,17 +5,26 @@ plugins {
 
 allprojects {
   repositories {
-    mavenLocal()
-    mavenCentral()
-    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
     jcenter()
+    mavenCentral()
+    maven { url 'http://oss.jfrog.org/oss-snapshot-local' }
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
   }
 }
 
 status = (project.hasProperty('preferredStatus')) ? project.preferredStatus : 'snapshot'
 
 ext {
-  versionDot = ".15"
+  shortVersion = { v ->
+    if (v.endsWith("-SNAPSHOT")) {
+      if (rootProject.status != 'snapshot') {
+        throw new IllegalArgumentException("must use release version: ${v}")
+      }
+      return v.substring(0, v.length() - 9)
+    }
+    return v
+  }
+  versionDot = ".16"
   versionSuffix = (rootProject.status == 'snapshot') ? "${versionDot}-SNAPSHOT" : versionDot
   versionGuice = '4.0'
   versionRxJava = '1.0.17'
@@ -27,7 +36,7 @@ ext {
   versionEureka = '1.3.5'
   versionArchaius = '0.7.3'
   versionJcraft = '1.1.3'
-  versionIep = '0.3.5'
+  versionIep = '0.3.7'
   githubProjectName = 'iep-shadow'
   sonatypeUsername = rootProject.hasProperty('sonatypeUsername')?rootProject.sonatypeUsername:''
   sonatypePassword = rootProject.hasProperty('sonatypePassword')?rootProject.sonatypePassword:''
