@@ -24,7 +24,7 @@ ext {
     }
     return v
   }
-  versionDot = ".19"
+  versionDot = ".20"
   versionSuffix = (rootProject.status == 'snapshot') ? "${versionDot}-SNAPSHOT" : versionDot
   versionGuice = '4.0'
   versionRxJava = '1.1.0'
