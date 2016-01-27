@@ -1,3 +1,9 @@
 language: java
 jdk:
-  - oraclejdk7
+- oraclejdk7
+env:
+  global:
+  - secure: Fg+tLh0hxekGRO5cH8pr8c48YLFVVSbh/Iry/I5Mduo0ebWN69ZMHTDI0td4yAUae9qt5zKjPu5nhNvKVe9fh5TfD6pOqvVpst21Bw/k4YGvoq2t1HKIyQRzY0MiST+yH0FhoOOh0AzUw1k9TEYNM9t9meF7OFppv786G5y/bEc=
+  - secure: S3dINOM4lfrqPJntKk18uUdOk+g4yLWNMiQDe85IDBSo40p11T53nePTtW+0opY8vBGjdGLCBQStcGugndlm+Z2OFEH+Xlq6pzzGzYfiGV1LQ2NvdrZ9/LmQG33DuQNnP5dSABdI3Rm/O8+WiIGxudqvfgWV+qGCXOrqzN8VmLU=
+  - secure: J09jDEzVk5QHt8u2CvOhoLKY4uxKVaCXWi2d7+bmway/x318uSgPQRnRu4oOgQ1h+RW7P/eGSxDcFcMIYWAi7O/isbkbA4vwV/Vy7Zj2lh1OddobkiseixcB9lRTkqPbWdMFZJmJQzDagepeojCwNDbWwGcEE1jIX9DnHlx6xas=
+  - secure: ddspWpSX1zi+tYAsQxwPqK4uGdCTNkngHjWuyVq3xRaLkIfccspx9Xy+wYHqVcDsHjWvRlYHPL6AWyqnVIz6LQQdcvgnQWkRfYZJ5sPBlCBppUOIRp5A6W5c4aIvtcTlUFwNUq+Xem2sWlq9fIXjutE7zXc7FUA2k7b/i2yDfns=
