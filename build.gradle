@@ -35,6 +35,7 @@ ext {
   versionSpectator = '0.40.0'
   versionEureka = '1.4.10'
   versionArchaius = '0.7.4'
+  versionArchaius2 = '2.0.6'
   versionJcraft = '1.1.3'
   versionIep = '0.4.6'
   githubProjectName = 'iep-shadow'
