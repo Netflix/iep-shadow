@@ -24,20 +24,20 @@ ext {
     }
     return v
   }
-  versionDot = ".27"
+  versionDot = ".28"
   versionSuffix = (rootProject.status == 'snapshot') ? "${versionDot}-SNAPSHOT" : versionDot
   versionGuice = '4.1.0'
-  versionRxJava = '1.1.7'
-  versionRxNetty = '0.4.17'
-  versionIoNetty = '4.1.4.Final'
+  versionRxJava = '1.1.9'
+  versionRxNetty = '0.4.18'
+  versionIoNetty = '4.1.5.Final'
   versionSlf4j = '1.7.21'
   versionServo = '0.12.8'
   versionSpectator = '0.40.0'
-  versionEureka = '1.4.10'
+  versionEureka = '1.4.11'
   versionArchaius = '0.7.4'
-  versionArchaius2 = '2.0.6'
+  versionArchaius2 = '2.1.4'
   versionJcraft = '1.1.3'
-  versionIep = '0.4.6'
+  versionIep = '0.4.7'
   githubProjectName = 'iep-shadow'
   sonatypeUsername = rootProject.hasProperty('sonatypeUsername')?rootProject.sonatypeUsername:''
   sonatypePassword = rootProject.hasProperty('sonatypePassword')?rootProject.sonatypePassword:''
