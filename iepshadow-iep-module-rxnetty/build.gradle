@@ -3,7 +3,6 @@ version = "${shortVersion(rootProject.versionIep)}${versionSuffix}"
 dependencies {
   runtime project(':iepshadow-iep-rxhttp')
   runtime project(':iepshadow-rxnetty')
-  runtime project(':iepshadow-rxnetty-contexts')
   runtime project(':iepshadow-rxnetty-spectator')
   runtime "io.reactivex:rxjava:${rootProject.versionRxJava}"
   runtime "com.google.inject:guice:${rootProject.versionGuice}"

@@ -2,7 +2,6 @@ version = "${shortVersion(rootProject.versionIep)}${versionSuffix}"
 
 dependencies {
   runtime project(':iepshadow-rxnetty')
-  runtime project(':iepshadow-rxnetty-contexts')
   runtime "io.reactivex:rxjava:${rootProject.versionRxJava}"
   runtime "com.netflix.archaius:archaius2-core:${rootProject.versionArchaius2}"
   runtime "com.netflix.eureka:eureka-client:${rootProject.versionEureka}"
